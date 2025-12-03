@@ -103,7 +103,7 @@ $$
 The total loss across all phase conductors is the sum of these individual losses:
 
 $$
-P_{los, phases}(t) = \sum_{k=1}^{N} \left[ i_{p,k} \sin(\omega t + \varphi_k) \right]^2 \cdot R_L
+\sum_{k=1}^{N} P_{loss, k}(t) = \sum_{k=1}^{N} \left[ i_{p,k} \sin(\omega t + \varphi_k) \right]^2 \cdot R_L
 $$
 
 #### B. Neutral Conductor Loss
@@ -151,7 +151,7 @@ $$
 The project calculates the total average loss by summing the losses in all $N$ phases plus the loss in the neutral return path:
 
 $$
-P_{loss, tot} = \sum_{k=1}^{N} (I_{rms, k}^2 \cdot R_L) + (I_{rms, N}^2 \cdot R_N)
+P_{loss, tot} = \sum_{k=1}^{K} (I_{rms, k}^2 \cdot R_L) + (I_{rms, N}^2 \cdot R_N)
 $$
 
 The term $P_{loss, N}$ represents the inefficiency of the system configuration. It is energy dissipated in the return path that performs no useful work for the load. Minimizing $i_N$ (by balancing amplitudes and phases) directly reduces this loss component to zero.
