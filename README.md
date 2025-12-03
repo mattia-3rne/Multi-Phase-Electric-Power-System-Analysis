@@ -103,7 +103,7 @@ $$
 The total loss across all phase conductors is the sum of these individual losses:
 
 $$
-P_{total\_phase}(t) = \sum_{k=1}^{N} \left[ i_{p,k} \sin(\omega t + \varphi_k) \right]^2 \cdot R_L
+P_{total, phase}(t) = \sum_{k=1}^{N} \left[ i_{p,k} \sin(\omega t + \varphi_k) \right]^2 \cdot R_L
 $$
 
 #### B. Neutral Conductor Loss
@@ -138,20 +138,20 @@ $$
 The average power loss is the mean of the instantaneous power over one full cycle. For a resistive line $R$:
 
 $$
-P_{avg} = \frac{1}{T} \int_{0}^{T} i(t)^2 \cdot R dt = R \cdot \left( \frac{1}{T} \int_{0}^{T} i(t)^2 dt \right)
+P_{loss, avg} = \frac{1}{T} \int_{0}^{T} i(t)^2 \cdot R dt = R \cdot \left( \frac{1}{T} \int_{0}^{T} i(t)^2 dt \right)
 $$
 
 Therefore, the calculation simplifies to the standard formula:
 
 $$
-P_{avg} = I_{rms}^2 \cdot R
+P_{loss, avg} = I_{rms}^2 \cdot R
 $$
 
 #### 3. Total System Power Loss
 The project calculates the total average loss by summing the losses in all $N$ phases plus the loss in the neutral return path:
 
 $$
-P_{avg, total} = \sum_{k=1}^{N} \left( \frac{i_{p,k}}{\sqrt{2}} \right)^2 \cdot R_L + \left( \frac{i_{p,N}}{\sqrt{2}} \right)^2 \cdot R_N
+P_{loss, avg, tot} = \sum_{k=1}^{N} \left( \frac{i_{p,k}}{\sqrt{2}} \right)^2 \cdot R_L + \left( \frac{i_{p,N}}{\sqrt{2}} \right)^2 \cdot R_N
 $$
 
 The term $P_{loss, N}$ represents the inefficiency of the system configuration. It is energy dissipated in the return path that performs no useful work for the load. Minimizing $i_N$ (by balancing amplitudes and phases) directly reduces this loss component to zero.
