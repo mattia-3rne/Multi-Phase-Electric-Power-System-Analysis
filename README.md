@@ -21,13 +21,13 @@ $$
 i_N(t) = \sum_{k=1}^{N} i_k(t)
 $$
 
-If we define the current for the $k$-th phase with amplitude $\hat{i}_k$ and phase shift $\varphi_k$:
+If we define the current for the $k$-th phase with amplitude $i_{p,k}$ and phase shift $\varphi_k$:
 
 $$
-i_k(t) = \hat{i}_k \cdot \sin(\omega t + \varphi_k)
+i_k(t) = i_{p,k} \cdot \sin(\omega t + \varphi_k)
 $$
 
-Then the neutral current is the superposition of these $N$ sine waves. In a **perfectly balanced system**, where all amplitudes $\hat{i}$ are equal and phases are shifted equidistantly by $2\pi/N$, this sum is exactly zero:
+Then the neutral current is the superposition of these $N$ sine waves. In a **perfectly balanced system**, where all amplitudes $i_p$ are equal and phases are shifted equidistantly by $2\pi/N$, this sum is exactly zero:
 
 $$
 i_N(t) = 0 \quad \forall t
@@ -44,7 +44,7 @@ To prove this for a general system with $N$ phases (where $N \geq 3$), we assume
 The instantaneous power $p_k(t)$ for a single phase $k$ is defined as the product of its instantaneous voltage and current:
 
 $$
-p_k(t) = u_k(t) \cdot i_k(t) = \left[ \hat{u} \cos\left(\omega t - \frac{2\pi k}{N}\right) \right] \cdot \left[ \hat{i} \cos\left(\omega t - \frac{2\pi k}{N} - \phi\right) \right]
+p_k(t) = u_k(t) \cdot i_k(t) = \left[ u_p \cos\left(\omega t - \frac{2\pi k}{N}\right) \right] \cdot \left[ i_p \cos\left(\omega t - \frac{2\pi k}{N} - \phi\right) \right]
 $$
 
 To separate the constant power component from the oscillating component, we apply the trigonometric product-to-sum identity:
@@ -53,10 +53,10 @@ $$
 \cos(A) \cos(B) = \frac{1}{2}\left[\cos(A-B) + \cos(A+B)\right]
 $$
 
-Applying this identity to our power equation—where $A$ represents the voltage phase and $B$ represents the current phase—we obtain two distinct terms for each phase:
+Applying this identity to our power equation, where $A$ represents the voltage phase and $B$ represents the current phase, we obtain two distinct terms for each phase:
 
 $$
-p_k(t) = \frac{\hat{u}\hat{i}}{2} \left[ \underbrace{\cos(\phi)}_{\text{DC Component}} + \underbrace{\cos\left(2\omega t - \frac{4\pi k}{N} - \phi\right)}_{\text{Double-Frequency AC Component}} \right]
+p_k(t) = \frac{u_p i_p}{2} \left[ \underbrace{\cos(\phi)}_{\text{DC Component}} + \underbrace{\cos\left(2\omega t - \frac{4\pi k}{N} - \phi\right)}_{\text{Double-Frequency AC Component}} \right]
 $$
 
 The **Total Instantaneous Power** $P_{total}(t)$ of the system is obtained by summing the contributions of all $N$ phases simultaneously:
@@ -68,7 +68,7 @@ $$
 This summation can be split into two separate parts:
 
 $$
-P_{total}(t) = \underbrace{\sum_{k=0}^{N-1} \frac{\hat{u}\hat{i}}{2} \cos(\phi)}_{\text{Constant Term}} + \underbrace{\sum_{k=0}^{N-1} \frac{\hat{u}\hat{i}}{2} \cos\left(2\omega t - \frac{4\pi k}{N} - \phi\right)}_{\text{Oscillating Term}}
+P_{total}(t) = \underbrace{\sum_{k=0}^{N-1} \frac{u_p i_p}{2} \cos(\phi)}_{\text{Constant Term}} + \underbrace{\sum_{k=0}^{N-1} \frac{u_p i_p}{2} \cos\left(2\omega t - \frac{4\pi k}{N} - \phi\right)}_{\text{Oscillating Term}}
 $$
 
 **The Analysis of the Sums:**
@@ -79,7 +79,7 @@ $$
 Consequently, the oscillating term vanishes completely, leaving only the constant term:
 
 $$
-P_{total}(t) = \frac{N}{2} \hat{u} \hat{i} \cos(\phi) = \text{Constant}
+P_{total}(t) = \frac{N}{2} u_p i_p \cos(\phi) = \text{Constant}
 $$
 
 This mathematical result explains why large-scale industrial motors and generators operate smoothly: the mechanical torque is constant, reducing wear and vibration compared to single-phase machinery.
@@ -103,7 +103,7 @@ $$
 The total loss across all phase conductors is the sum of these individual losses:
 
 $$
-P_{total\_phase}(t) = \sum_{k=1}^{N} \left[ \hat{i}_k \sin(\omega t + \varphi_k) \right]^2 \cdot R_L
+P_{total\_phase}(t) = \sum_{k=1}^{N} \left[ i_{p,k} \sin(\omega t + \varphi_k) \right]^2 \cdot R_L
 $$
 
 #### B. Neutral Conductor Loss
@@ -112,7 +112,7 @@ In a Star connection, the neutral wire carries the vector sum of the phase curre
 With a neutral line resistance $R_N$, the instantaneous neutral power loss is:
 
 $$
-P_{loss, N}(t) = i_N(t)^2 \cdot R_N = \left( \sum_{k=1}^{N} \hat{i}_k \sin(\omega t + \varphi_k) \right)^2 \cdot R_N
+P_{loss, N}(t) = i_N(t)^2 \cdot R_N = \left( \sum_{k=1}^{N} i_{p,k} \sin(\omega t + \varphi_k) \right)^2 \cdot R_N
 $$
 
 ---
@@ -128,10 +128,10 @@ $$
 I_{rms} = \sqrt{\frac{1}{T} \int_{0}^{T} i(t)^2 dt}
 $$
 
-For the pure sinusoidal currents used in this simulation, this integration simplifies to a constant relationship with the peak amplitude $\hat{i}$:
+For the pure sinusoidal currents used in this simulation, this integration simplifies to a constant relationship with the peak amplitude $i_p$:
 
 $$
-I_{rms} = \frac{\hat{i}}{\sqrt{2}} \approx 0.707 \cdot \hat{i}
+I_{rms} = \frac{i_p}{\sqrt{2}} \approx 0.707 \cdot i_p
 $$
 
 #### 2. Deriving Average Power Loss
@@ -147,7 +147,7 @@ Therefore, the calculation simplifies to the standard formula: $P_{avg} = I_{rms
 The project calculates the total average loss by summing the losses in all $N$ phases plus the loss in the neutral return path:
 
 $$
-P_{avg, total} = \underbrace{\sum_{k=1}^{N} \left( \frac{\hat{i}_k}{\sqrt{2}} \right)^2 \cdot R_L}_{\text{Phase Losses}} + \underbrace{\left( \frac{\hat{i}_{N, peak}}{\sqrt{2}} \right)^2 \cdot R_N}_{\text{Neutral Loss}}
+P_{avg, total} = \underbrace{\sum_{k=1}^{N} \left( \frac{i_{p,k}}{\sqrt{2}} \right)^2 \cdot R_L}_{\text{Phase Losses}} + \underbrace{\left( \frac{i_{p,N}}{\sqrt{2}} \right)^2 \cdot R_N}_{\text{Neutral Loss}}
 $$
 
 The term $P_{loss, N}$ represents the inefficiency of the system configuration. It is energy dissipated in the return path that performs no useful work for the load. Minimizing $i_N$ (by balancing amplitudes and phases) directly reduces this loss component to zero.
@@ -173,7 +173,7 @@ The term $P_{loss, N}$ represents the inefficiency of the system configuration. 
 
 1.  **Clone the repository**:
     ```bash
-    git clone https://github.com/your-username/multi-phase-electric-power-system-analysis.git
+    git clone [https://github.com/your-username/multi-phase-electric-power-system-analysis.git](https://github.com/your-username/multi-phase-electric-power-system-analysis.git)
     ```
 
 2.  **Install dependencies**:
