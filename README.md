@@ -141,7 +141,11 @@ $$
 P_{avg} = \frac{1}{T} \int_{0}^{T} i(t)^2 \cdot R dt = R \cdot \left( \frac{1}{T} \int_{0}^{T} i(t)^2 dt \right)
 $$
 
-Therefore, the calculation simplifies to the standard formula: $P_{avg} = I_{rms}^2 \cdot R$.
+Therefore, the calculation simplifies to the standard formula:
+
+$$
+P_{avg} = I_{rms}^2 \cdot R
+$$
 
 #### 3. Total System Power Loss
 The project calculates the total average loss by summing the losses in all $N$ phases plus the loss in the neutral return path:
