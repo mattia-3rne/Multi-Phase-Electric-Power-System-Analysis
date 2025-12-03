@@ -37,7 +37,7 @@ $$
 
 ### The Phenomenon of Constant Power Transfer
 
-A fundamental and unique property of symmetric polyphase systems is that the **total instantaneous power** delivered to a resistive or inductive load remains strictly constant over time. This stands in stark contrast to single-phase systems, where the power pulsates at double the grid frequency, causing mechanical vibrations and torque ripple in motors.
+A fundamental and unique property of symmetric polyphase systems is that the total instantaneous power delivered to a resistive or inductive load remains strictly constant over time. This stands in stark contrast to single-phase systems, where the power pulsates at double the grid frequency, causing mechanical vibrations and torque ripple in motors.
 
 To prove this for a general system with $N$ phases (where $N \geq 3$), we assume a perfectly symmetric supply. Let the voltage $u(t)$ and current $i(t)$ for the $k$-th phase be shifted by an angle of $\frac{2\pi k}{N}$, with a load power factor angle of $\phi$.
 
@@ -59,7 +59,7 @@ $$
 p_k(t) = \frac{u_p i_p}{2} \left[ \cos(\phi) + \cos\left(2\omega t - \frac{4\pi k}{N} - \phi\right) \right]
 $$
 
-The **Total Instantaneous Power** $P_{total}(t)$ of the system is obtained by summing the contributions of all $N$ phases simultaneously:
+The total instantaneous power $P_{total}(t)$ of the system is obtained by summing the contributions of all $N$ phases simultaneously:
 
 $$
 P_{total}(t) = \sum_{k=0}^{N-1} p_k(t)
@@ -89,7 +89,7 @@ This mathematical result explains why large-scale industrial motors and generato
 
 ### Resistive Line Losses
 
-In real-world applications, conductors are not ideal superconductors; they possess internal electrical resistance ($R$). As current flows through these conductors, a portion of the electrical energy is irreversibly converted into heat via Joule Heating. This project calculates these **Conduction Losses** to quantify system efficiency.
+In real-world applications, conductors are not ideal superconductors; they possess internal electrical resistance ($R$). As current flows through these conductors, a portion of the electrical energy is irreversibly converted into heat via Joule Heating. This project calculates these conduction losses to quantify system efficiency.
 
 The total resistive loss in the system is the sum of losses in the active phase lines and the return neutral line.
 
