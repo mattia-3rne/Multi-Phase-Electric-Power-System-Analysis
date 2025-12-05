@@ -193,6 +193,6 @@ The term $P_{loss, N}$ represents the inefficiency of the system configuration. 
 
 ## 📂 Project Structure
 
-* `requirements.txt`: Python package dependencies.
 * `main.ipynb`: The main analysis notebook.
+* `requirements.txt`: Python package dependencies.
 * `README.md`: Project documentation.
